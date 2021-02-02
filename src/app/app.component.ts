@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularDz5two';
+
+  users = [];
+  nameValue;
+  ageValue;
+
+  name = new FormControl();
+  age = new FormControl();
+
+  myForm = new FormGroup({
+    name : this.name,
+    age : this.age
+  });
+
+
+
+  action(): void{
+    this.users.push({name: this.nameValue, age: this.ageValue});
+    console.log(this.users);
+
+  }
 }
+
